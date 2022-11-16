@@ -1,0 +1,15 @@
+{
+  "name": "open-api",
+  "version": "1.0.0",
+  "description": "npm workspace",
+  "main": "./src/index.ts",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.5.2"
+  },
+  "scripts": {
+    "start": "openapi-generator-cli generate -g typescript-fetch -i ./specfile.yml  -o ./src --additional-properties=modelPropertyNaming=camelCase,supportsES6=true,withInterfaces=true,typescriptThreePlus=true",
+    "mock": "openapi-generator-cli generate -g nodejs-express-server -i ./specfile.yml -o ./mock"
+  },
+  "author": "ym.u.ichiro@gmail.com",
+  "license": "MIT"
+}

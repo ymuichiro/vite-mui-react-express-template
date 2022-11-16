@@ -1,0 +1,54 @@
+version: "3"
+services:
+  # ----------------
+  # MYSQL Container
+  # ----------------
+  database:
+    image: mysql:8.0
+    platform: linux/amd64
+    container_name: database
+    env_file:
+      - ../../.env
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_RANDOM_ROOT_PASSWORD="yes"
+    ports:
+      - "3306:3306"
+    command: mysqld --innodb_use_native_aio=0
+    volumes:
+      - ../cnf:/etc/mysql/conf.d/:ro
+      - ../logs:/var/log/mysql:rw
+      - ../sql/init.development.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - mysql:/var/lib/mysql
+    networks:
+      - primary
+  # ----------------
+  # Application Container
+  # ----------------
+  app:
+    image: node:16
+    container_name: app
+    env_file:
+      - ../../.env
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - 3001:3001
+      - 1337:1337
+    tty: false
+    volumes:
+      - ../../.:/workspace
+      - ../../node_modules:/workspace/node_modules
+    working_dir: /workspace
+    command: -c 'npm run start -w backend & npm run start -w frontend'
+    entrypoint:
+      - sh
+    networks:
+      - primary
+
+networks:
+  primary:
+    driver: bridge
+
+volumes:
+  mysql:

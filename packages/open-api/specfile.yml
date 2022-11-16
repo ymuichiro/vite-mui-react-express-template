@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Open API Document
+  description: |-
+    description
+  contact:
+    email: ym.u.ichiro@gmail.com
+  license:
+    name: MIT
+    url: https://example.com
+  version: 0.0.1
+externalDocs:
+  description: Find out more about me
+  url: https://example.com
+servers:
+  - url: http://localhost:3001/api
+tags:
+  - name: user
+    description: user info
+paths:
+  /user:
+    get:
+      tags:
+        - user
+      summary: get user
+      operationId: getUser
+      responses:
+        "200":
+          description: Successful
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    nullable: false
+                    allOf:
+                      - $ref: "#/components/schemas/Sccessful"
+components:
+  schemas:
+    Sccessful:
+      type: object
+      required:
+        - status
+        - message
+      properties:
+        status:
+          type: string
+          enum:
+            - ok
+            - error
+        message:
+          type: string
