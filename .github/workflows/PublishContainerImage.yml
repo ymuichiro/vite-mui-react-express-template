@@ -23,4 +23,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ghcr.io/${{ github.repository }}:$(date +%s)
+          tags: ghcr.io/${{ github.repository }}:latest
