@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import '@/languages/index';
 import Root from './navigation/Root';
 import CssBaseline from '@/components/atom/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';

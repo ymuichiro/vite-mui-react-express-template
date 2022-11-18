@@ -4,11 +4,23 @@ import reactLogo from '@/assets/react.svg';
 import Button from '@/components/atom/Button';
 import { NAVIGATIONS } from '@/navigation/Root';
 import { useRecoilState } from 'recoil';
+import { useTranslation } from 'react-i18next';
 import { roll } from '@/store/auth';
+import { Languages } from '@/languages';
 
 export default function Index(): JSX.Element {
   const [count, setCount] = useState(0);
   const [rRoll, rSetRoll] = useRecoilState(roll);
+  const { t, i18n } = useTranslation();
+
+  const onClickLang = () => {
+    console.log('current language', i18n.language);
+    if (i18n.language === 'en') {
+      i18n.changeLanguage(Languages.ja);
+    } else {
+      i18n.changeLanguage(Languages.en);
+    }
+  };
 
   return (
     <div
@@ -30,9 +42,16 @@ export default function Index(): JSX.Element {
           <img src={reactLogo} className='logo react' alt='React logo' height={56} />
         </Link>
       </div>
-      <h1>Vite + React + Mui</h1>
-      <Button onClick={() => setCount((count) => count + 1)}>count is {count}</Button>
-      <Button onClick={() => rSetRoll('authenticated')}>now {rRoll}</Button>
+      <h1>{t('Welcome to React')}</h1>
+      <Button fullWidth onClick={() => setCount((count) => count + 1)} style={{ maxWidth: '300px' }}>
+        count is {count}
+      </Button>
+      <Button fullWidth onClick={() => rSetRoll('authenticated')} style={{ maxWidth: '300px' }}>
+        now {rRoll}
+      </Button>
+      <Button fullWidth onClick={() => onClickLang()} style={{ maxWidth: '300px' }}>
+        lang
+      </Button>
       <Link to={NAVIGATIONS.mypage.path}>MyPage</Link>
     </div>
   );
