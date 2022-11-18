@@ -4,6 +4,9 @@
   "description": "Webアプリケーション開発のテンプレート",
   "author": "ym.u.ichiro@gmail.com",
   "license": "MIT",
+  "engines": {
+    "yarn": "Please use npm"
+  },
   "keywords": [
     "template",
     "react",
@@ -16,7 +19,6 @@
     "backend"
   ],
   "scripts": {
-    "preinstall": "npx only-allow npm",
     "clean": "rimraf node_modules"
   },
   "devDependencies": {

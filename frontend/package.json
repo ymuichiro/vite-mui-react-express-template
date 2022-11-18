@@ -17,6 +17,9 @@
       "pre-commit": "npm run lint"
     }
   },
+  "engines": {
+    "yarn": "Please use npm"
+  },
   "author": "ym.u.ichiro@gmail.com",
   "license": "MIT",
   "dependencies": {

@@ -6,6 +6,9 @@
   "main": "src/server.ts",
   "version": "1.0.0",
   "description": "npm workspace",
+  "engines": {
+    "yarn": "Please use npm"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",

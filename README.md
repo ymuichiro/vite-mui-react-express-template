@@ -1,50 +1,45 @@
-# Vite,Express Template
+# Vite,Express Boilerplate
 
-A template for developing web applications using Vite, React, and Express.
+## Introduction
 
-# structure
+This repository provides boilerplate for monolithic frontend and backend development. Leverage `npm workspace` to facilitate each package management. Also, when executing various commands, containers are used to reduce environment dependencies. In addition, open api is used to streamline communication between frontend and backend.
+# Structure
 
 - Frontend
-  - Vite
-  - React
-  - Mui-material
-  - emotion
-  - Recoil
-  - React-router-dom
+  - Vite, React, Mui-material, Open API
 - Backend
-  - Express
-  - mysql
-- Other
-  - Open API
-  - Docker
-  - eslint
-  - prettier
+  - Express, mysql, Open API
 
-## Initial setting
+## Getting Start
 
-- A makefile is used to organize commands. If you haven't installed it, please install it first.
+Copy this repository locally. You can start developing immediately.
+Press `use this template` to start development.
 
-Install the dependent libraries by running
+Each command is abstracted in `makefile`. Follow the steps below to install dependent packages, start the development server, and deploy. Also, if you want to customize the command, please refer to `makefile` and change it.
 
-```
+### Install dependent packages
+
+Install dependent packages based on package.json in each directory.
+
+```sh
 make install
 ```
 
-## Start development server
+### Start development server
 
-Just run
+Start both the frontend and backend development servers. Also, mysql for the backend will start automatically. Create `.env.local` first for mysql credentials.
 
-```
+```sh
 make start
 ```
 
-Stop with `ctrl + c` to exit. If you want to delete the container once because it just stops the running container, please execute as follows
+Stop with `ctrl + c` to exit. If you want to delete the container once because it just stops the running container, please execute as follows.
 
-```
+```sh
 make down
 ```
 
-## Deploy
+### Build and deploy
 
 To build and deploy to your server do the following
 
@@ -52,37 +47,30 @@ To build and deploy to your server do the following
 make deploy
 ```
 
-# others
+### Alternative) Build only the container
 
-Here are some other commonly used commands
+I think that there are times when you want to build only containers and use them on each PaaS platform. This repository comes pre-built with `GitHub Actions`. Automatically create a container when you change the source code in the `main` branch.
 
-## I want to clean the environment once
+### Clean the environment once
 
 If you want to clean installed node_modules, dist, docker, please do the following
 
-```
+```sh
 make clean
 ```
 
-## I want to containerize once
+### others
 
-The `make deploy` case is suitable for use on VMs, etc., but if you want to use it on Google Cloud run, etc., follow the steps below.
-
-1. Push a set of developed sources to your own GitHub repository
-2. After pushing, check the GitHub Actions tab in the repository and you will see that the build has started automatically
-3. Wait for it to finish
-4. When the completion mark appears, the container is complete.
-
-# others
-
-If you want to incorporate Blockchain into your development, please refer to the following information
-You can easily develop blockchain applications via Javascript sdk and API without learning how to develop difficult contracts.
+If you want to incorporate Blockchain into your development, please refer to the following information. You can easily develop blockchain applications via Javascript sdk and API without learning how to develop difficult contracts.
 
 **Site**
+
 https://symbol-community.com/ja-JP
 
 **Learning**
+
 https://github.com/xembook/quick_learning_symbol
 
 **Contact**
+
 https://discord.gg/A8MRq5Vuvt
