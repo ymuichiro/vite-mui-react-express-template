@@ -9,7 +9,7 @@ This repository provides boilerplate for monolithic frontend and backend develop
 ## Structure
 
 - Frontend
-  - Vite, React, Mui-material, Open API
+  - Vite, React, Mui-material, i18n, Open API
 - Backend
   - Express, mysql, Open API
 
