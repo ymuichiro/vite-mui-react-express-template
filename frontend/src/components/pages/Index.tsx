@@ -13,12 +13,12 @@ export default function Index(): JSX.Element {
   const [rRoll, rSetRoll] = useRecoilState(roll);
   const { t, i18n } = useTranslation();
 
-  const onClickLang = () => {
+  const onClickLang = (): void => {
     console.log('current language', i18n.language);
     if (i18n.language === 'en') {
-      i18n.changeLanguage(Languages.ja);
+      i18n.changeLanguage(Languages.ja).catch(console.error);
     } else {
-      i18n.changeLanguage(Languages.en);
+      i18n.changeLanguage(Languages.en).catch(console.error);
     }
   };
 
