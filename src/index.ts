@@ -6,7 +6,7 @@ import StatusCodes from 'http-status-codes';
 import express, { NextFunction, Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
-import baseRouter from './routes/index';
+import baseRouter from './server/routes/index';
 import path from 'path';
 
 const app = express();
@@ -45,11 +45,12 @@ app.use((err: Error, _: Request, res: Response, __: NextFunction) => {
   return res.status(StatusCodes.BAD_REQUEST).json({ error: err.message });
 });
 
-// start server
+// ********************************************
+// *                 start server
+// ********************************************
 const port = process.env.VITE_API_PORT ?? 3000;
 const domain = process.env.VITE_API_URL ?? 'http://localhost';
 app.listen(port, () => {
-  console.log('='.repeat(10), '\n');
-  console.log(`Start Backend Server: ${domain}:${port}\n`);
-  console.log('='.repeat(10));
+  console.log('\n \x1b[32m EXPRESS', '\x1b[39m start');
+  console.log('\x1b[32m   → \x1b[39m Local:', `\x1b[34m ${domain}:${port}`);
 });

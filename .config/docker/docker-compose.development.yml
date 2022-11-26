@@ -22,29 +22,6 @@ services:
       - mysql:/var/lib/mysql
     networks:
       - primary
-  # ----------------
-  # Application Container
-  # ----------------
-  app:
-    image: node:16
-    container_name: app
-    env_file:
-      - ../../.env
-    environment:
-      - CHOKIDAR_USEPOLLING=true
-    ports:
-      - 3001:3001
-      - 1337:1337
-    tty: false
-    volumes:
-      - ../../.:/workspace
-      - ../../node_modules:/workspace/node_modules
-    working_dir: /workspace
-    command: -c 'npm run start -w backend & npm run start -w frontend'
-    entrypoint:
-      - sh
-    networks:
-      - primary
 
 networks:
   primary:

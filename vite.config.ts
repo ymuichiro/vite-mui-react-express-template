@@ -10,6 +10,6 @@ export default defineConfig({
     port: Number(process.env.VITE_PORT),
   },
   build: {
-    outDir: '../backend/dist/view',
+    outDir: 'dist/view',
   },
 });

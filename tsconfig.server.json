@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "baseUrl": ".",
+    "outDir": "./dist"
+  },
+  "include": ["src"],
+  "exclude": ["src/client", "src/main.tsx"]
+}

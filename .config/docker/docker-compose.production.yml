@@ -33,11 +33,8 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
     ports:
-      - 80:3001
+      - 3001:3001
     tty: false
-    volumes:
-      - ../../.:/workspace
-      - ../../node_modules:/workspace/node_modules
     working_dir: /workspace
     command: -c 'npm run serve -w backend'
     entrypoint:
