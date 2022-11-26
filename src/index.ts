@@ -48,7 +48,7 @@ app.use((err: Error, _: Request, res: Response, __: NextFunction) => {
 // ********************************************
 // *                 start server
 // ********************************************
-const port = process.env.VITE_API_PORT ?? 3000;
+const port = process.env.VITE_API_PORT ?? 3001;
 const domain = process.env.VITE_API_URL ?? 'http://localhost';
 app.listen(port, () => {
   console.log('\n \x1b[32m EXPRESS', '\x1b[39m start');

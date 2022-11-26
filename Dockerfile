@@ -7,7 +7,7 @@ RUN \
   npm ci \
   && npm run build
 
-FROM node:16-alpine3.16
+FROM node:16-alpine3.16 as production
 
 COPY --from=builder /workspace/dist /workspace/dist
 COPY --from=builder /workspace/package.json /workspace/package.json
