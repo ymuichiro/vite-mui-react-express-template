@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This repository provides boilerplate for monolithic frontend and backend development. Leverage `npm workspace` to facilitate each package management. Also, when executing various commands, containers are used to reduce environment dependencies. In addition, open api is used to streamline communication between frontend and backend.
+This repository provides templates for monolithic frontend and backend development. Leverage "npm workspaces" to facilitate management of each package. It also uses open APIs to streamline communication between frontend and backend.
 
 ## Structure
 
@@ -18,49 +18,39 @@ This repository provides boilerplate for monolithic frontend and backend develop
 Copy this repository locally. You can start developing immediately.
 Press `use this template` to start development.
 
-Each command is abstracted in `makefile`. Follow the steps below to install dependent packages, start the development server, and deploy. Also, if you want to customize the command, please refer to `makefile` and change it.
-
 ### Install dependent packages
 
 Install dependent packages based on package.json in each directory.
 
 ```sh
-make install
+npm install
 ```
 
 ### Start development server
 
-Start both the frontend and backend development servers. Also, mysql for the backend will start automatically. Create `.env.local` first for mysql credentials.
+Start both the frontend and backend development servers. If you have not built Mysql locally, please use the provided docker-compose.
 
+**When you want to start MYSQL**
 ```sh
-make start
+make up
 ```
 
-Stop with `ctrl + c` to exit. If you want to delete the container once because it just stops the running container, please execute as follows.
-
+**When starting the development server**
 ```sh
-make down
+npm start
 ```
 
 ### Build and deploy
 
-To build and deploy to your server do the following
+Use the following command to build
 
 ```
-make deploy
+npm run build
 ```
 
 ### Alternative) Build only the container
 
 I think that there are times when you want to build only containers and use them on each PaaS platform. This repository comes pre-built with `GitHub Actions`. Automatically create a container when you change the source code in the `main` branch.
-
-### Clean the environment once
-
-If you want to clean installed node_modules, dist, docker, please do the following
-
-```sh
-make clean
-```
 
 ### others
 
